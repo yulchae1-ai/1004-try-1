@@ -1,0 +1,15 @@
+body{font-family:system-ui;margin:0;background:#fff;color:#111}
+.hero{position:relative;height:100vh;background:url('assets/tiger.jpg') center/cover no-repeat;display:grid;place-items:center}
+.hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.hero .content{position:relative;color:#fff;text-align:center}
+.cta{display:inline-block;margin-top:20px;padding:12px 24px;background:#2563eb;color:#fff;text-decoration:none;border-radius:999px}
+.section{max-width:1000px;margin:auto;padding:40px}
+.controls button{margin:4px;padding:8px 16px;border:1px solid #ddd;border-radius:20px;cursor:pointer}
+.controls button.active{background:#2563eb;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:20px}
+.card{border:1px solid #eee;border-radius:10px;padding:16px;background:#fafafa}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{white-space:pre-line;color:#333}
+.card a{color:#2563eb;text-decoration:none}
+.card a:hover{text-decoration:underline}
+.footer{text-align:center;padding:20px;border-top:1px solid #eee;color:#777}
