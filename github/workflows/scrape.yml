@@ -1,0 +1,28 @@
+name: Daily Naver Headlines Scraper
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: |
+          pip install -r requirements.txt
+          python scrape_headlines.py --top-k 3 --delay 0.8
+      - run: |
+          git config user.name "news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add outputs/*.json || true
+          if ! git diff --cached --quiet; then
+            git commit -m "auto: update headlines $(date -u '+%Y-%m-%dT%H:%MZ')"
+            git push
+          else
+            echo "No changes"
+          fi
